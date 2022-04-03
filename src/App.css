@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+p {
+  font-size: 18px;
+  /* font-weight: 500; */
+}
+
+button {
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+button.increase {
+  background-color: darkblue;
+  color: white;
+}
+
+button.decrease {
+  background-color: lightblue;
+}
