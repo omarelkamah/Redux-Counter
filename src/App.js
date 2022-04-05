@@ -1,35 +1,22 @@
 import { useSelector, useDispatch } from "react-redux";
 import "./App.css";
+import { increase, decrease } from "./store/index";
 
 function App() {
+  const value = useSelector((state) => state);
   const dispatch = useDispatch();
-  const theValue = useSelector((count) => {
-    if (count.value < 1) {
-      count.value = 0;
-      return (count = "No Value");
-    }
-    return count.value;
-  });
 
-  const increase = () => {
-    const action = { type: "increase", payload: 1 };
-    dispatch(action);
-  };
-  const decrease = () => {
-    const action = { type: "decrease", payload: 1 };
-    dispatch(action);
-  };
   return (
     <div className="App">
       <h1>Hello Redux</h1>
-      <p>Counter: {theValue}</p>
-      <button className="increase" onClick={increase}>
+      <p>Counter: {value.value}</p>
+      <button className="increase" onClick={() => dispatch(increase(1))}>
         Increase +
       </button>
       <button
-        disabled={theValue === "No Value" ? true : false}
+        disabled={value.value === 0 ? true : false}
         className="decrease"
-        onClick={decrease}
+        onClick={() => dispatch(decrease(1))}
       >
         decrease -
       </button>

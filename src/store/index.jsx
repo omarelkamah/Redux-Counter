@@ -7,10 +7,10 @@ const counterSlice = createSlice({
   initialState,
   reducers: {
     increase: (state, action) => {
-      state.value += 1
+      state.value += action.payload
     },
     decrease: (state, action) => {
-      state.value -= 1
+      state.value -= action.payload
     }
   }
 })
@@ -27,5 +27,6 @@ const counterSlice = createSlice({
 // }
 
 const store = createStore(counterSlice.reducer)
+export const { increase, decrease } = counterSlice.actions
 
 export default store
